@@ -34,11 +34,11 @@ export default function Content() {
     const defaultAddress='0x7ebBdA87448f22b1B64f19C0312a8F827b85615f'
     useEffect(() => {
         if (account) {
-            const link = "https://api.etherscan.io/api?module=account&action=tokennfttx&address="+defaultAddress+"&page=1&offset=100&startblock=0&sort=asc&apikey=VS6SCTIDV6KB3PJDYNF8CU19SV6UW3SUB6"
+            const link = "https://api.etherscan.io/api?module=account&action=tokennfttx&address="+account+"&page=1&offset=100&startblock=0&sort=asc&apikey=VS6SCTIDV6KB3PJDYNF8CU19SV6UW3SUB6"
             axios.get(link).then((resp)=>{
                 console.log(resp);
                 setTokenDetails(resp.data.result)
-                const link2 = "https://api.etherscan.io/api?module=account&action=txlist&address="+defaultAddress+"&page=1&offset=100&startblock=0&sort=asc&apikey=VS6SCTIDV6KB3PJDYNF8CU19SV6UW3SUB6"
+                const link2 = "https://api.etherscan.io/api?module=account&action=txlist&address="+account+"&page=1&offset=100&startblock=0&sort=asc&apikey=VS6SCTIDV6KB3PJDYNF8CU19SV6UW3SUB6"
                 axios.get(link2).then((resp)=>{
                     console.log(resp);
                     setTransactionDetails(resp.data.result)
